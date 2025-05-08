@@ -128,36 +128,6 @@ For containerized deployment using Docker:
    eb setenv ZILLOW_API_KEY=your_key_here
    ```
 
-### Method 3: Deploying to MCP.so
-
-To submit your server to MCP.so:
-
-1. Create a GitHub repository with your server code:
-   ```bash
-   git init
-   git add zillow_mcp_server.py requirements.txt Dockerfile README.md
-   git commit -m "Initial commit for Zillow MCP server"
-   git branch -M main
-   git remote add origin https://github.com/yourusername/zillow-mcp-server.git
-   git push -u origin main
-   ```
-
-2. Visit [MCP.so](https://mcp.so) and submit your server for inclusion
-
-3. Provide the following server configuration:
-   ```json
-   {
-     "mcpServers": {
-       "zillow": {
-         "command": "npx",
-         "args": ["-y", "zillow-mcp-server"],
-         "env": {
-           "ZILLOW_API_KEY": "<YOUR_API_KEY>"
-         }
-       }
-     }
-   }
-   ```
 
 ## Connecting to the Server
 
