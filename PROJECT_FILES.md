@@ -68,26 +68,3 @@ zillow-mcp-server/
 ├── .gitignore               # Git exclusion rules
 └── LICENSE                  # MIT License
 ```
-
-## How to Submit to MCP.so
-
-1. Create a GitHub repository with all these files
-2. Ensure all tests pass and documentation is complete
-3. Visit [MCP.so](https://mcp.so) and submit your server
-4. Provide the configuration details as specified in the documentation
-
-## MCP.so Submission Configuration
-
-```json
-{
-  "mcpServers": {
-    "zillow": {
-      "command": "npx",
-      "args": ["-y", "zillow-mcp-server"],
-      "env": {
-        "ZILLOW_API_KEY": "<YOUR_API_KEY>"
-      }
-    }
-  }
-}
-```
