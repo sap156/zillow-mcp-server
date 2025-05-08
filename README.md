@@ -248,27 +248,6 @@ The server implements robust error handling with:
 - Connection timeouts
 - Graceful degradation
 
-## Submitting to MCP.so
-
-To submit this server to [MCP.so](https://mcp.so), follow these steps:
-
-1. Host your code in a GitHub repository
-2. Visit [MCP.so](https://mcp.so) and submit your server for inclusion
-3. Provide the server configuration:
-
-```json
-{
-  "mcpServers": {
-    "zillow": {
-      "command": "npx",
-      "args": ["-y", "zillow-mcp-server"],
-      "env": {
-        "ZILLOW_API_KEY": "<YOUR_API_KEY>"
-      }
-    }
-  }
-}
-```
 
 ## Technical Architecture
 
