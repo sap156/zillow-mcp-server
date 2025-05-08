@@ -1,0 +1,36 @@
+{
+  "name": "zillow-mcp-server",
+  "version": "1.0.0",
+  "description": "Zillow MCP Server for real estate data access via the Model Context Protocol",
+  "main": "index.js",
+  "bin": {
+    "zillow-mcp-server": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "zillow",
+    "mcp",
+    "model-context-protocol",
+    "real-estate",
+    "claude",
+    "api"
+  ],
+  "author": "Sai Abhinav Parvathaneni <neni.abhinav@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "python-shell": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sap156/zillow-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sap156/zillow-mcp-server/issues"
+  },
+  "homepage": "https://github.com/sap156/zillow-mcp-server#readme"
+}

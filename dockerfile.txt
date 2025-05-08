@@ -1,0 +1,25 @@
+FROM python:3.10-slim
+
+WORKDIR /app
+
+# Install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy server code
+COPY zillow_mcp_server.py .
+
+# Create .env file at build time if API key is provided
+ARG ZILLOW_API_KEY
+RUN if [ ! -z "$ZILLOW_API_KEY" ]; then \
+    echo "ZILLOW_API_KEY=$ZILLOW_API_KEY" > .env; \
+    fi
+
+# Expose port for HTTP server
+EXPOSE 8000
+
+# Set entrypoint to run the server (default to stdio mode)
+ENTRYPOINT ["python", "zillow_mcp_server.py"]
+
+# Default to HTTP server mode when running as container
+CMD ["--http", "--host", "0.0.0.0"]
