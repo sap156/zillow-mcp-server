@@ -307,6 +307,51 @@ zillow://market-trends/Seattle, WA
 
 This would return a formatted document with market trends that Claude can present to the user.
 
+### Server Tools Discovery
+
+**User**: "What tools are available in the Zillow MCP server?"
+
+**Claude** will use the `get_server_tools` tool:
+
+```python
+get_server_tools()
+```
+
+**Response**:
+```
+The Zillow MCP server provides the following tools:
+
+1. search_properties
+   - Search for properties on Zillow based on criteria
+   - Parameters: location, type, price range, bedrooms, bathrooms, home types
+
+2. get_property_details
+   - Get detailed information about a property by ID or address
+   - Parameters: property_id OR address
+
+3. get_zestimate
+   - Get Zillow's estimated value for a property
+   - Parameters: property_id OR address
+
+4. get_market_trends
+   - Get real estate market trends for a specific location
+   - Parameters: location, metrics, time_period
+
+5. calculate_mortgage
+   - Calculate mortgage payments and related costs
+   - Parameters: home_price, down_payment, interest_rate, etc.
+
+6. check_health
+   - Check the health and status of the Zillow API connection
+
+7. get_server_tools
+   - Get a list of all available tools on this server
+
+Available Resources:
+- zillow://property/{property_id}
+- zillow://market-trends/{location}
+```
+
 ## Health Check Example
 
 **User**: "Is the Zillow API working properly right now?"

@@ -471,6 +471,99 @@ def calculate_mortgage(
     }
 
 @mcp.tool()
+def get_server_tools() -> Dict:
+    """
+    Get a list of all available tools on this server.
+    
+    Returns:
+        Dictionary with information about all available tools
+    """
+    tools = [
+        {
+            "name": "search_properties",
+            "description": "Search for properties on Zillow based on criteria",
+            "parameters": {
+                "location": "Address, city, ZIP code, or neighborhood",
+                "type": "Property listing type - 'forSale', 'forRent', or 'sold'",
+                "min_price": "Minimum price in dollars",
+                "max_price": "Maximum price in dollars",
+                "beds_min": "Minimum number of bedrooms",
+                "beds_max": "Maximum number of bedrooms",
+                "baths_min": "Minimum number of bathrooms",
+                "baths_max": "Maximum number of bathrooms",
+                "home_types": "List of home types (e.g., ['house', 'condo', 'apartment'])"
+            }
+        },
+        {
+            "name": "get_property_details",
+            "description": "Get detailed information about a property by ID or address",
+            "parameters": {
+                "property_id": "Zillow property ID (zpid)",
+                "address": "Full property address"
+            }
+        },
+        {
+            "name": "get_zestimate",
+            "description": "Get Zillow's estimated value (Zestimate) for a property",
+            "parameters": {
+                "property_id": "Zillow property ID (zpid)",
+                "address": "Full property address"
+            }
+        },
+        {
+            "name": "get_market_trends",
+            "description": "Get real estate market trends for a specific location",
+            "parameters": {
+                "location": "City, ZIP code, or neighborhood",
+                "metrics": "List of metrics to retrieve",
+                "time_period": "Time period for historical data"
+            }
+        },
+        {
+            "name": "calculate_mortgage",
+            "description": "Calculate mortgage payments and related costs",
+            "parameters": {
+                "home_price": "Price of the home in dollars",
+                "down_payment": "Down payment amount in dollars",
+                "down_payment_percent": "Down payment as a percentage of home price",
+                "loan_term": "Loan term in years",
+                "interest_rate": "Annual interest rate as a percentage",
+                "annual_property_tax": "Annual property tax in dollars",
+                "annual_homeowners_insurance": "Annual homeowners insurance in dollars",
+                "monthly_hoa": "Monthly HOA fees in dollars",
+                "include_pmi": "Whether to include PMI for down payments less than 20%"
+            }
+        },
+        {
+            "name": "check_health",
+            "description": "Check the health and status of the Zillow API connection",
+            "parameters": {}
+        },
+        {
+            "name": "get_server_tools",
+            "description": "Get a list of all available tools on this server",
+            "parameters": {}
+        }
+    ]
+    
+    resources = [
+        {
+            "name": "zillow://property/{property_id}",
+            "description": "Get property information as a formatted text resource",
+            "parameters": {
+                "property_id": "Zillow property ID (zpid)"
+            }
+        },
+        {
+            "name": "zillow://market-trends/{location}",
+            "description": "Get market trends information as a formatted text resource",
+            "parameters": {
+                "location": "City, ZIP code, or neighborhood"
+            }
+        }
+    ]
+    
+@mcp.tool()
 def check_health() -> Dict:
     """
     Check the health and status of the Zillow API connection.

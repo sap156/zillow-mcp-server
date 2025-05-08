@@ -22,7 +22,7 @@ A Model Context Protocol (MCP) server that provides real-time access to Zillow r
 
 1. Clone this repository:
    ```
-   git clone https://github.com/sap156/zillow-mcp-server.git
+   git clone https://github.com/yourusername/zillow-mcp-server.git
    cd zillow-mcp-server
    ```
 
@@ -205,6 +205,19 @@ check_health()
 Example usage in Claude:
 ```
 Please check if the Zillow API is currently responsive.
+```
+
+### Get Server Tools
+
+Get a list of all available tools on this server:
+
+```python
+get_server_tools()
+```
+
+Example usage in Claude:
+```
+What tools are available in the Zillow MCP server?
 ```
 
 ## Available Resources
